@@ -18,7 +18,18 @@ app.use("/",router);
 app.use('/public', express.static(__dirname + '/public'));
 
 // views is directory for all template files
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 
+app.get('/index2', function(request, response) {
+  response.render('pages/index2');
+});
+app.get('/product', function(request, response) {
+  response.render('pages/product');
+});
+app.get('/contact', function(request, response) {
+  response.render('pages/contact');
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
